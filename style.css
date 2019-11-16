@@ -1,0 +1,38 @@
+body {
+    margin: 10px;
+
+}
+
+h2 {
+    font-size: 25px;
+}
+
+.col-6 {
+    padding-top: 10px;
+}
+
+.red-background {
+    background-color:#be0000;
+}
+
+#results {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#submit {
+    margin: auto;
+}
+
+.white {
+    color:#ffffff;
+}
+
+#head {
+    margin-bottom: 5px;
+}
+
+#quest {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    height: 300px;
+}
