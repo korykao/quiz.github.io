@@ -2,25 +2,18 @@ var timeoutHandle;
 function countdown(minutes, seconds) {
     function tick() {
         var counter = document.getElementById("timer");
-        counter.innerHTML = minutes.toString() + ":" + (seconds < 10 ? "0" : "") + String(seconds);
+        counter.innerHTML = minutes.toString() + (seconds < 10 ? "0" : "") + String(seconds);
         seconds--;
 
-        console.log(counter)
         if (seconds >= 0) {
             timeoutHandle = setTimeout(tick, 1000);
-        } else {
-            if (minutes >= 1) {
-                setTimeout(function () {
-                    countdown(minutes - 1, 59);
-                }, 1000);
-            }
-        }
+        } 
     }
     tick();
 }
 
 
-countdown(1, 30);
+countdown("", 75);
 
 (function() {
   function buildQuiz() {
@@ -38,16 +31,16 @@ countdown(1, 30);
         answers.push(
           `<label>
             <input type="radio" name="question${questionNumber}" value="${letter}">
-            ${letter} :
+
             ${currentQuestion.answers[letter]}
-          </label>`
+          </label>&nbsp;&nbsp;&nbsp;`
         );
       }
 
       // add this question and its answers to the output
       output.push(
-        `<div class="question"> ${currentQuestion.question} </div>
-        <div class="answers"> ${answers.join("")} </div>`
+        `<div class="question" style="font-weight: bold;"> ${currentQuestion.question} </div>
+        <div class="answers" style="padding-bottom: 15px;"> ${answers.join("")} </div>`
       );
     });
 
@@ -82,7 +75,7 @@ countdown(1, 30);
     });
 
     // show number of correct answers out of total
-    resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+    resultsContainer.innerHTML = `&nbsp;&nbsp;&nbsp;${numCorrect} out of ${myQuestions.length}`;
   }
 
 const quizContainer = document.getElementById('quiz');
@@ -121,4 +114,5 @@ var myQuestions = [
 buildQuiz();
 
 submitButton.addEventListener("click", showResults);
+
 })();
